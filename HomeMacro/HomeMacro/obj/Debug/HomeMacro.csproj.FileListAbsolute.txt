@@ -1,0 +1,10 @@
+C:\Users\yun_pyo_Lee\Source\Repos\HomeMacro\HomeMacro\obj\Debug\HomeMacro.csprojAssemblyReference.cache
+C:\Users\yun_pyo_Lee\Source\Repos\HomeMacro\HomeMacro\obj\Debug\HomeMacro.Form1.resources
+C:\Users\yun_pyo_Lee\Source\Repos\HomeMacro\HomeMacro\obj\Debug\HomeMacro.Properties.Resources.resources
+C:\Users\yun_pyo_Lee\Source\Repos\HomeMacro\HomeMacro\obj\Debug\HomeMacro.csproj.GenerateResource.cache
+C:\Users\yun_pyo_Lee\Source\Repos\HomeMacro\HomeMacro\obj\Debug\HomeMacro.csproj.CoreCompileInputs.cache
+C:\Users\yun_pyo_Lee\Source\Repos\HomeMacro\HomeMacro\bin\Debug\HomeMacro.exe.config
+C:\Users\yun_pyo_Lee\Source\Repos\HomeMacro\HomeMacro\bin\Debug\HomeMacro.exe
+C:\Users\yun_pyo_Lee\Source\Repos\HomeMacro\HomeMacro\bin\Debug\HomeMacro.pdb
+C:\Users\yun_pyo_Lee\Source\Repos\HomeMacro\HomeMacro\obj\Debug\HomeMacro.exe
+C:\Users\yun_pyo_Lee\Source\Repos\HomeMacro\HomeMacro\obj\Debug\HomeMacro.pdb
