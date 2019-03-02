@@ -87,7 +87,7 @@ namespace HomeMacro
                 MouseMoveAndClick(saveSeatPositionXpos, saveSeatPositionYpos);
                 Thread.Sleep(300);
                 MouseMoveAndClick(saveSeatPositionXpos, saveSeatPositionYpos);
-                
+
                 MouseMoveAndClick(nextBtnXpos, nextBtnYpos);
                 macroStart = false;
                 isFindColor = false;
@@ -98,6 +98,9 @@ namespace HomeMacro
                 isFindColor = PixelSearch(0, 0, 688, 923, testCol);
                 MouseMoveAndClick(mouseXpos, mouseYpos);
             }
+
+            System.GC.Collect(0, GCCollectionMode.Forced);
+            System.GC.WaitForFullGCComplete();
 
             /*
             Point cursor = new Point();
