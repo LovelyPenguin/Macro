@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             this.MouseLocation = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.Keyboard = new System.Windows.Forms.Label();
+            this.RGBDataLabel = new System.Windows.Forms.Label();
             this.SaveMousePoint = new System.Windows.Forms.Label();
             this.Detector = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -54,15 +54,15 @@
             // 
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // Keyboard
+            // RGBDataLabel
             // 
-            this.Keyboard.AutoSize = true;
-            this.Keyboard.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
-            this.Keyboard.Location = new System.Drawing.Point(12, 332);
-            this.Keyboard.Name = "Keyboard";
-            this.Keyboard.Size = new System.Drawing.Size(19, 63);
-            this.Keyboard.TabIndex = 2;
-            this.Keyboard.Text = "0\r\n0\r\n0";
+            this.RGBDataLabel.AutoSize = true;
+            this.RGBDataLabel.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(129)));
+            this.RGBDataLabel.Location = new System.Drawing.Point(16, 332);
+            this.RGBDataLabel.Name = "RGBDataLabel";
+            this.RGBDataLabel.Size = new System.Drawing.Size(19, 63);
+            this.RGBDataLabel.TabIndex = 2;
+            this.RGBDataLabel.Text = "0\r\n0\r\n0";
             // 
             // SaveMousePoint
             // 
@@ -131,10 +131,11 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Detector);
             this.Controls.Add(this.SaveMousePoint);
-            this.Controls.Add(this.Keyboard);
+            this.Controls.Add(this.RGBDataLabel);
             this.Controls.Add(this.MouseLocation);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Form1_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             this.ResumeLayout(false);
@@ -145,7 +146,7 @@
         #endregion
         private System.Windows.Forms.Label MouseLocation;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Label Keyboard;
+        private System.Windows.Forms.Label RGBDataLabel;
         private System.Windows.Forms.Label SaveMousePoint;
         private System.Windows.Forms.Label Detector;
         private System.Windows.Forms.Label label1;

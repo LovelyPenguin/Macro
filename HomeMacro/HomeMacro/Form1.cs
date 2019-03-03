@@ -1,10 +1,9 @@
 ﻿/*
  * C#폼을 자세히 모르는 덕분에 코드 가독성이 존나 개판임
- * 매크로 기능과 좌표 저장, 색 추출 정도는 가능
- * 스크린의 색과 저장된 색 정보를 대조하는 기능이 필요함
- * Pixel Search라는 방법이 있는 모양
- * 하 ㅅㅂ
- * ㅅㅂ
+ * 매크로 기능과 좌표 저장, 색 추출 정도는 가능.
+ * 스크린의 색과 저장된 색 정보를 대조하는 기능이 필요함.
+ * 큰 메모리 누수는 해결했지만 작은 메모리 누수가 일어나는 모양이다.
+ * 티켓링크 전용임
  */
 using System;
 using System.Collections.Generic;
@@ -18,6 +17,7 @@ using System.Windows.Forms;
 using System.Threading;
 using System.Runtime.InteropServices;
 using System.Drawing.Imaging;
+using System.Windows.Input;
 
 namespace HomeMacro
 {
@@ -47,15 +47,10 @@ namespace HomeMacro
         int saveSeatPositionXpos;
         int saveSeatPositionYpos;
 
-        Color testCol;
-
-        ColorCodeClass color = new ColorCodeClass();
-
+        Color colorData;
         bool macroStart = false;
-
         bool isFindColor = false;
 
-        int count = 0;
         public Form1()
         {
             InitializeComponent();
@@ -69,17 +64,6 @@ namespace HomeMacro
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            //MouseLocation.Text = "x : " + Cursor.Position.X.ToString() + "\n" + "y : " + Cursor.Position.Y.ToString();
-
-            //if (macroStart)
-            //{
-            //    MouseMoveAndClick(mouseXpos, mouseYpos);
-            //    count++;
-            //    if (count >= 100)
-            //    {
-            //        macroStart = false;
-            //    }
-            //}
 
             if (isFindColor && macroStart)
             {
@@ -95,26 +79,13 @@ namespace HomeMacro
             if (!isFindColor && macroStart)
             {
                 Detector.Text = "not found";
-                isFindColor = PixelSearch(0, 0, 688, 923, testCol);
+                isFindColor = PixelSearch(0, 0, 688, 923, colorData);
                 MouseMoveAndClick(mouseXpos, mouseYpos);
             }
 
+            // 강제 메모리 삭제
             System.GC.Collect(0, GCCollectionMode.Forced);
             System.GC.WaitForFullGCComplete();
-
-            /*
-            Point cursor = new Point();
-            GetCursorPos(ref cursor);
-            var c = GetColorAt(Cursor.Position);
-            this.BackColor = c;
-
-            if (c.R == color.red && c.G == color.green && c.B == color.blue)
-            {
-                Detector.Text = "Detect!";
-            }
-            else
-                Detector.Text = "Not found";
-            */
         }
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
@@ -140,15 +111,11 @@ namespace HomeMacro
             // 컬러 가져오기
             if (e.KeyCode.ToString() == "C")
             {
-                Color colorCode;
+                colorData = GetColorAt(new Point(Cursor.Position.X, Cursor.Position.Y));
 
-                colorCode = ScreenColor(Cursor.Position.X, Cursor.Position.Y);
-
-                testCol = GetColorAt(new Point(Cursor.Position.X, Cursor.Position.Y));
-
-                Keyboard.Text = colorCode.R.ToString() + "\n";
-                Keyboard.Text += colorCode.G.ToString() + "\n";
-                Keyboard.Text += colorCode.B.ToString() + "\n";
+                RGBDataLabel.Text = colorData.R.ToString() + "\n";
+                RGBDataLabel.Text += colorData.G.ToString() + "\n";
+                RGBDataLabel.Text += colorData.B.ToString();
             }
 
             // 매크로 스타트
@@ -185,28 +152,6 @@ namespace HomeMacro
             return bmp.GetPixel(0, 0);
         }
 
-        /// <summary>
-        /// 마우스 포인터를 기준으로 색을 잡아옴
-        /// 그렇다고 1920 * 1080 연산을 돌려버릴 수는 없음.
-        /// </summary>
-        //Bitmap screenPixel = new Bitmap(1, 1, PixelFormat.Format32bppArgb);
-        //public Color GetColorAt(Point location)
-        //{
-        //    using (Graphics gdest = Graphics.FromImage(screenPixel))
-        //    {
-        //        using (Graphics gsrc = Graphics.FromHwnd(IntPtr.Zero))
-        //        {
-        //            IntPtr hSrcDC = gsrc.GetHdc();
-        //            IntPtr hDC = gdest.GetHdc();
-        //            int retval = BitBlt(hDC, 0, 0, 1, 1, hSrcDC, location.X, location.Y, (int)CopyPixelOperation.SourceCopy);
-        //            gdest.ReleaseHdc();
-        //            gsrc.ReleaseHdc();
-        //        }
-        //    }
-
-        //    return screenPixel.GetPixel(0, 0);
-        //}
-
         public Color GetColorAt(Point location)
         {
             Bitmap screenPixel = new Bitmap(1, 1, PixelFormat.Format32bppArgb);
@@ -226,38 +171,8 @@ namespace HomeMacro
             return screenPixel.GetPixel(0, 0);
         }
 
-        // 어케 쓰는거지...
-        public Bitmap CaptureFromScreen(Rectangle rect)
-        {
-            Bitmap bmpScreenCapture = null;
-
-            if (rect == Rectangle.Empty)//capture the whole screen
-            {
-                rect = Screen.PrimaryScreen.Bounds;
-            }
-
-            bmpScreenCapture = new Bitmap(rect.Width, rect.Height);
-
-            Graphics p = Graphics.FromImage(bmpScreenCapture);
-
-
-            p.CopyFromScreen(rect.X,
-                     rect.Y,
-                     0, 0,
-                     rect.Size,
-                     CopyPixelOperation.SourceCopy);
-
-
-            p.Dispose();
-
-            return bmpScreenCapture;
-        }
-
         /// <summary>
         /// 배껴쓰는 거라 난 잘 모르겠다
-        /// 속도가 아주 심히 느리다...
-        /// 다른 방법을 찾아보는 것도 좋을 것 같다.
-        /// 마우스 포인터의 위치도 이상함
         /// </summary>
         /// <param name="left"></param>
         /// <param name="top"></param>
@@ -297,6 +212,16 @@ namespace HomeMacro
                 }
             }
             return false;
+        }
+
+        /// <summary>
+        /// 폼이 닫혔을 때 (즉 실행이 꺼졌을 때)
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+
         }
     }
 }
