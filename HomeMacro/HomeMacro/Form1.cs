@@ -30,6 +30,11 @@ namespace HomeMacro
         [DllImport("user32.dll")]
         static extern bool GetCursorPos(ref Point lpPoint);
 
+        [DllImport("user32.dll")]
+        public static extern bool RegisterHotKey(IntPtr hWnd, int id, int fsModifiers, int vlc);
+        [DllImport("user32.dll")]
+        public static extern bool UnregisterHotKey(IntPtr hWnd, int id);
+
         [DllImport("gdi32.dll", CharSet = CharSet.Auto, SetLastError = true, ExactSpelling = true)]
         public static extern int BitBlt(IntPtr hDC, int x, int y, int nWidth, int nHeight, IntPtr hSrcDC, int xSrc, int ySrc, int dwRop);
 
@@ -51,6 +56,8 @@ namespace HomeMacro
         bool macroStart = false;
         bool isFindColor = false;
 
+        private int MYACTION_HOTKEY_ID;
+
         public Form1()
         {
             InitializeComponent();
@@ -58,6 +65,7 @@ namespace HomeMacro
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            RegisterHotKey(this.Handle, MYACTION_HOTKEY_ID, 2, (int)Keys.F12);
             timer1.Start();
             timer1.Interval = 1;
         }
@@ -212,6 +220,21 @@ namespace HomeMacro
                 }
             }
             return false;
+        }
+
+        protected override void WndProc(ref Message m)
+        {
+            if (m.Msg == 0x0312 && m.WParam.ToInt32() == MYACTION_HOTKEY_ID)
+            {
+                // My hotkey has been typed
+
+                // Do what you want here
+                // ...
+                macroStart = false;
+                //Application.Exit();
+                MessageBox.Show("Stop");
+            }
+            base.WndProc(ref m);
         }
 
         /// <summary>
