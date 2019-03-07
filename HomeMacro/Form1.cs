@@ -53,8 +53,10 @@ namespace HomeMacro
         int saveSeatPositionYpos;
 
         Color colorData;
+        Color popupColorData;
         bool macroStart = false;
         bool isFindColor = false;
+        bool isPopup = false;
 
         private int MYACTION_HOTKEY_ID;
 
@@ -75,7 +77,7 @@ namespace HomeMacro
 
             if (isFindColor && macroStart)
             {
-                Thread.Sleep(500);
+                //Thread.Sleep(300);
                 MouseMoveAndClick(saveSeatPositionXpos, saveSeatPositionYpos);
                 Thread.Sleep(300);
                 MouseMoveAndClick(saveSeatPositionXpos, saveSeatPositionYpos);
@@ -88,7 +90,13 @@ namespace HomeMacro
             {
                 Detector.Text = "not found";
                 isFindColor = PixelSearch(0, 0, 688, 923, colorData);
+                //isPopup = PixelSearch(0, 0, 688, 923, popupColorData);
                 MouseMoveAndClick(mouseXpos, mouseYpos);
+            }
+
+            if (isPopup && macroStart)
+            {
+
             }
 
             // 강제 메모리 삭제
@@ -125,6 +133,12 @@ namespace HomeMacro
                 RGBDataLabel.Text += colorData.G.ToString() + "\n";
                 RGBDataLabel.Text += colorData.B.ToString();
             }
+
+            // 컬러 가져오기
+            //if (e.KeyCode.ToString() == "P")
+            //{
+            //    colorData = Color.FromArgb(225, 225, 225);
+            //}
 
             // 매크로 스타트
             if (e.KeyCode.ToString() == "S")

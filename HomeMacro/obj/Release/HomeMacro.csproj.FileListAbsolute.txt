@@ -16,3 +16,12 @@ C:\Users\yun_pyo_Lee\Documents\GitHub\Macro\HomeMacro\HomeMacro\obj\Release\Home
 C:\Users\yun_pyo_Lee\Documents\GitHub\Macro\HomeMacro\HomeMacro\obj\Release\HomeMacro.csproj.CoreCompileInputs.cache
 C:\Users\yun_pyo_Lee\Documents\GitHub\Macro\HomeMacro\HomeMacro\obj\Release\HomeMacro.exe
 C:\Users\yun_pyo_Lee\Documents\GitHub\Macro\HomeMacro\HomeMacro\obj\Release\HomeMacro.pdb
+C:\Users\yun_pyo_Lee\Documents\GitHub\Macro\HomeMacro\bin\Release\HomeMacro.exe.config
+C:\Users\yun_pyo_Lee\Documents\GitHub\Macro\HomeMacro\bin\Release\HomeMacro.exe
+C:\Users\yun_pyo_Lee\Documents\GitHub\Macro\HomeMacro\bin\Release\HomeMacro.pdb
+C:\Users\yun_pyo_Lee\Documents\GitHub\Macro\HomeMacro\obj\Release\HomeMacro.Form1.resources
+C:\Users\yun_pyo_Lee\Documents\GitHub\Macro\HomeMacro\obj\Release\HomeMacro.Properties.Resources.resources
+C:\Users\yun_pyo_Lee\Documents\GitHub\Macro\HomeMacro\obj\Release\HomeMacro.csproj.GenerateResource.cache
+C:\Users\yun_pyo_Lee\Documents\GitHub\Macro\HomeMacro\obj\Release\HomeMacro.csproj.CoreCompileInputs.cache
+C:\Users\yun_pyo_Lee\Documents\GitHub\Macro\HomeMacro\obj\Release\HomeMacro.exe
+C:\Users\yun_pyo_Lee\Documents\GitHub\Macro\HomeMacro\obj\Release\HomeMacro.pdb
