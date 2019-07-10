@@ -67,7 +67,10 @@ namespace HomeMacro
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            RegisterHotKey(this.Handle, MYACTION_HOTKEY_ID, 2, (int)Keys.F12);
+            // Modifier keys codes: Alt = 1, Ctrl = 2, Shift = 4, Win = 8
+            // Compute the addition of each combination of the keys you want to be pressed
+            // ALT+CTRL = 1 + 2 = 3 , CTRL+SHIFT = 2 + 4 = 6...
+            RegisterHotKey(this.Handle, MYACTION_HOTKEY_ID, 8, (int)Keys.F10);
             timer1.Start();
             timer1.Interval = 1;
         }
@@ -238,6 +241,7 @@ namespace HomeMacro
 
         protected override void WndProc(ref Message m)
         {
+            // 매크로 중지
             if (m.Msg == 0x0312 && m.WParam.ToInt32() == MYACTION_HOTKEY_ID)
             {
                 // My hotkey has been typed

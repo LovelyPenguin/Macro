@@ -38,6 +38,7 @@
             this.NextBtnLocation = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // MouseLocation
@@ -120,11 +121,23 @@
             this.label3.TabIndex = 8;
             this.label3.Text = "색상(C)";
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(364, 320);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(170, 72);
+            this.label4.TabIndex = 9;
+            this.label4.Text = "키 설명\r\nS : 매크로 시작\r\nWin + F12 : 매크로 중지\r\nR : 새로고침 버튼의 위치 설정\r\nN : 다음단계 버튼의 위치 설정\r\nC :" +
+    " 원하는 좌석의 색상 추출\r\n";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(546, 404);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.NextBtnLocation);
@@ -153,6 +166,7 @@
         private System.Windows.Forms.Label NextBtnLocation;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
     }
 }
 

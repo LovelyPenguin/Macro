@@ -28,3 +28,13 @@ C:\Users\yun_pyo_Lee\Documents\GitHub\Macro\HomeMacro\obj\Debug\HomeMacro.csproj
 C:\Users\yun_pyo_Lee\Documents\GitHub\Macro\HomeMacro\obj\Debug\HomeMacro.csproj.CoreCompileInputs.cache
 C:\Users\yun_pyo_Lee\Documents\GitHub\Macro\HomeMacro\obj\Debug\HomeMacro.exe
 C:\Users\yun_pyo_Lee\Documents\GitHub\Macro\HomeMacro\obj\Debug\HomeMacro.pdb
+C:\Users\LovelyPenguin\Documents\GitHub\Macro\HomeMacro\bin\Debug\HomeMacro.exe.config
+C:\Users\LovelyPenguin\Documents\GitHub\Macro\HomeMacro\bin\Debug\HomeMacro.exe
+C:\Users\LovelyPenguin\Documents\GitHub\Macro\HomeMacro\bin\Debug\HomeMacro.pdb
+C:\Users\LovelyPenguin\Documents\GitHub\Macro\HomeMacro\obj\Debug\HomeMacro.csprojAssemblyReference.cache
+C:\Users\LovelyPenguin\Documents\GitHub\Macro\HomeMacro\obj\Debug\HomeMacro.Form1.resources
+C:\Users\LovelyPenguin\Documents\GitHub\Macro\HomeMacro\obj\Debug\HomeMacro.Properties.Resources.resources
+C:\Users\LovelyPenguin\Documents\GitHub\Macro\HomeMacro\obj\Debug\HomeMacro.csproj.GenerateResource.cache
+C:\Users\LovelyPenguin\Documents\GitHub\Macro\HomeMacro\obj\Debug\HomeMacro.csproj.CoreCompileInputs.cache
+C:\Users\LovelyPenguin\Documents\GitHub\Macro\HomeMacro\obj\Debug\HomeMacro.exe
+C:\Users\LovelyPenguin\Documents\GitHub\Macro\HomeMacro\obj\Debug\HomeMacro.pdb
